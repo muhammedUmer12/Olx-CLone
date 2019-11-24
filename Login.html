@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: blue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  }
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+
+</style>
+</head>
+<body>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+<h2>Login Form</h2>
+
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" id="uname" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" id="psw" placeholder="Enter Password" name="psw" required>
+        
+   <center><button type="submit" id="loginIn">Login</button> <button type="submit" id="logOut">LogOut</button></center> 
+   <center> <label> <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label></center> 
+    
+  </div>
+<center><div class="container">
+  
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div></center>
+
+</form>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+     <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBbOcidi_udSIUSL7elVFtnFh7xi2hOO-Q",
+        authDomain: "webapp-efa6e.firebaseapp.com",
+        databaseURL: "https://webapp-efa6e.firebaseio.com",
+        projectId: "webapp-efa6e",
+        storageBucket: "webapp-efa6e.appspot.com",
+        messagingSenderId: "732007801412",
+        appId: "1:732007801412:web:9cbd9bb72841cb8baed211"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    
+      const lemail = document.getElementById('uname');
+      const lpass = document.getElementById('psw');
+      const lLogin = document.getElementById('loginIn');
+      const llogOut = document.getElementById('logOut');
+    
+      lLogin.addEventListener('click', e  => {
+        const email = lemail.value;
+        const pass = lpass.value;
+
+        const auth = firebase.auth;
+
+        const promise = auth.signInWithEmailAndPassword(email,pass)
+        .catch(function(error){
+          var errorCode = error.code;
+
+          if(errorCode == 'auth/invalid-email')
+          {
+            console.log('Invalid email');
+          }else if(errorCode == 'auth/wrong-password')
+          {
+            console.log('Wrong Password.......Please try Again...')
+          }else{
+            console.log('Error: ' + errorCode);
+          }
+          
+        });
+
+        
+      });
+
+        llogOut.addEventListener('click', e =>{
+
+            firebase.auth().signOut();
+        });
+
+
+
+    
+    </script>
+
+
+
+</body>
+
+</html>

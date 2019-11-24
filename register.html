@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: blue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  }
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+
+</style>
+</head>
+<body>
+
+<h2>Register Form</h2>
+
+
+  <div class="container">
+    <label for="fname"><b>First Name</b></label>
+    <input type="text" placeholder="Enter FirstName" name="fname" required>
+    <label for="lname"><b>Last Name</b></label>
+    <input type="text" placeholder="Enter LastName" name="lname" required>
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter UserName" name="uname" required>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+    <label for="number"><b>Number</b></label>
+    <input type="text" placeholder="Enter Phone Number" name="number" required>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label for="sex"><b>Gender</b></label> <br>
+    <input type="radio" checked="radio" name="sex"> Male
+    <input type="radio" checked="radio" name="sex"> Female
+        
+   <center><button type="submit">Login</button></center> 
+   <center> <label> <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label></center> 
+    
+  </div>
+<center><div class="container">
+  
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div></center>
+  
+</form>
+
+</body>
+</html>
